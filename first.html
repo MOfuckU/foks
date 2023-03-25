@@ -1,0 +1,87 @@
+<!-- Display the countdown timer in an element -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  font-family: courier;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 50%;
+  margin-bottom: 50%;
+  color: black;
+}
+
+#button {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: courier;
+  margin-right: (50%-16px);
+  margin-left: ;
+  cursor: pointer;
+  border-radius: 30px;
+
+}
+
+#button:hover {
+  background-color: black;
+  color: white;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <p id="countdown"></p>
+    <a id="button" href="https://www.w3schools.com/js/js_objects.asp" target="_blank" style="display:none;">KOCHAM CHEMIOLOGIE</a>
+  </div>
+
+<button id="button" style="display:none;">Kocham CHEMIOLOGIE</button>
+
+<script>
+var countDownDate = new Date("March 25, 2023 16:55:30").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = " V chujów sto V";
+    document.getElementById("button").style.display = "block";
+  }
+}, 1000);
+</script>
+
+<div class="img">
+
+
+</div>
+
+</body>
+</html>
